@@ -1,0 +1,935 @@
+
+@import "mixins";
+
+//<Подключение шрифтов через Google fonts>===============================================================
+
+@import "fonts";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:wght@400,700&display=swap');
+
+
+
+//<Шрифт по умолчанию>========================================================================================
+$fontFamily: "Roboto Slab";
+//</Шрифт по умолчанию>========================================================================================
+
+//<Переменные>========================================================================================
+$minWidth: 320px;
+$maxWidth: 1600;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3:767.98;
+$md4:479.98;
+//</Переменные>========================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================================================================
+@import "nullstyle";
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================================================================
+body {
+    font-family: $fontFamily;
+    &._lock {
+        overflow: hidden;
+    }
+}
+
+//<ОБОЛОЧКА>========================================================================================
+.wrapper{
+    //Шаблон
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &._load{
+    }
+}
+//</ОБОЛОЧКА>========================================================================================
+
+//<ОСНОВНАЯ СЕТКА>========================================================================================
+._container{
+    max-width: $maxWidthContainer+px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+//</ОСНОВНАЯ СЕТКА>========================================================================================
+
+@import "icons";
+@import "header";
+@import "swiper";
+@import "ui";
+@import "footer";
+
+.page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.45);
+    }
+    &__background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &__content {
+        padding: 200px 0 150px;
+        @include responsive-size(padding-top, 200, 160,$maxWidthContainer);
+        z-index: 2;
+        flex: 1 1 auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: Montserrat;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-bottom: 30px;
+        @include responsive-size(font-size, 48, 30, $maxWidthContainer);
+        @include responsive-size(margin-bottom, 30, 15, $maxWidthContainer);
+    }
+
+    &__text {
+        font-family: 'Roboto Slab';
+        text-transform: none;
+        color: #ffffff;
+        margin-bottom: 50px;
+        @include responsive-size(font-size, 20, 14, $maxWidthContainer);
+        @include responsive-size(margin-bottom, 50, 30, $maxWidthContainer);
+
+    }
+
+    &__button {
+        display: inline-block;
+        font-family: Montserrat;
+        line-height: 24px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease 0s;
+        @include responsive-size(font-size, 16, 14, $maxWidthContainer);
+        @include responsive-size(padding-top, 18, 10, $maxWidthContainer);
+        @include responsive-size(padding-bottom, 18, 10, $maxWidthContainer);
+        @include responsive-size(padding-left, 35, 25, $maxWidthContainer);
+        @include responsive-size(padding-right, 35, 25, $maxWidthContainer);
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #fff;
+                color: #c0301c;  
+            }
+        }
+    }
+}
+
+//=====================================================================
+.services {
+    @include responsive-size(padding-top, 100, 50,$maxWidthContainer);
+    @include responsive-size(padding-bottom, 100, 50,$maxWidthContainer);
+
+    &__content {
+
+    }
+
+    &__list {
+        @include responsive-size(margin-top, 60, 40,$maxWidthContainer);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 45px;
+    }
+
+    &__item {
+    }
+}
+
+.item-services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 2px solid #dddddd;
+        border-radius: 50%;
+        @include responsive-size(margin-bottom, 30, 20, $maxWidthContainer);
+        @include responsive-size(width, 90, 60, $maxWidthContainer);
+        @include responsive-size(height, 90, 60, $maxWidthContainer);
+
+
+        &::before {
+            display: block;
+            color: #c0301c;
+            @include responsive-size(font-size, 45, 30, $maxWidthContainer);
+        }
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 24px;
+        text-transform: uppercase;
+        color: #555555;
+        @include responsive-size(margin-bottom, 20, 10,$maxWidthContainer);
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+    }
+}
+
+//====================================================================
+.about-us {
+    background-color: #f8f8f8;
+    @include responsive-size(padding-top, 100, 50, $maxWidthContainer);
+    @include responsive-size(padding-bottom, 100, 50, $maxWidthContainer);
+    &__content{
+
+    }
+
+    &__content-text {
+        @include responsive-size(margin-top, 70, 30, $maxWidthContainer);
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(290px, 1fr));
+        gap: 30px;
+    }
+
+    &__text-column {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+    }
+
+    &__team {
+        @include responsive-size(margin-top, 70, 30, $maxWidthContainer);
+    }
+}
+
+.team {
+    position: relative;
+    &__body {
+        
+    }
+
+    &__slide {
+        
+    }
+
+    &__img-container {
+        position: relative;
+        transition: all 0.3s ease 0s;
+        margin-bottom: 15px;
+        &:hover {
+            .team__hover-content {
+                z-index: 2;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__img {
+        padding-bottom: 95%;
+    }
+
+    &__hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(85, 85, 85, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        opacity: 0;
+        transition: all 0.3s ease 0s;
+        visibility: hidden;
+    }
+
+    &__links {
+        margin-bottom: 30px;
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        transition: all 0.3s ease 0s;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 19px;
+            color: #fff;
+        }
+        &:hover {
+            background-color: #c0301c;
+        }
+    }
+
+    &__iformation {
+        text-align: center;
+    }
+
+    &__people-name {
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 24px;
+        text-transform: uppercase;
+        color: #555555;
+    }
+
+    &__people-job {
+        font-size: 13px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+    }
+}
+
+//====================================================================
+.works {
+    @include responsive-size(padding-top, 100, 50, $maxWidthContainer);
+
+    &__container {
+    }
+
+    &__gallery {
+        @include responsive-size(margin-bottom, 100, 50, $maxWidthContainer);
+    }
+
+    &__touch {
+        
+    }
+}
+
+.gallery {
+
+    &__categories {
+        margin-top: 25px;
+        margin-bottom: 65px;
+        @include responsive-size(margin-bottom, 65, 30, $maxWidthContainer);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    &__categorie {
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+        transition: all 0.3s ease 0s;
+        padding-bottom: 5px;
+        transition: color 0.3s ease 0s;
+        &._active {
+            color: #c0301c;
+        }
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(290px, 1fr));
+        gap: 30px;
+    }
+
+    &__item {
+    }
+}
+
+.item-gallery {
+    position: relative;
+    &:hover {
+        .item-gallery__hover {
+            z-index: 2;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &__img {
+        padding-bottom: 89%;
+    }
+
+    &__hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(192, 47, 28, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all 0.3s ease 0s;
+        visibility: hidden;
+    }
+
+    &__title {
+        font-family: Montserrat;
+        font-size: 18px;
+        line-height: 24px;
+        color: #ffffff;
+        margin-bottom: 5px;
+    }
+
+    &__categorie {
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        position: relative;
+        padding: 15px 20px;
+        padding-right: 40px;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #c0301c;
+        background-color: #ffffff;
+        transition: all 0.3s ease 0s;
+        &::before {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.touch-works {
+    @include responsive-size(padding-top, 100, 50, $maxWidthContainer);
+    @include responsive-size(padding-bottom, 100, 50, $maxWidthContainer);
+
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(192, 47, 28, 0.6);
+    }
+
+    &__back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    &__text {
+        line-height: 1.466;
+        font-weight: 400;
+        color: #ffffff;
+        @include responsive-size(font-size, 30, 20, $maxWidthContainer);
+        @include responsive-size(font-size, 30, 20, $maxWidthContainer);
+
+    }
+
+    &__link {
+        display: inline-block;
+        @include responsive-size(margin-top, 50, 25, $maxWidthContainer);
+        @include responsive-size(padding-top, 10,5,$maxWidthContainer);
+        @include responsive-size(padding-bottom, 10,5,$maxWidthContainer);
+        @include responsive-size(padding-left, 27, 15,$maxWidthContainer);
+        @include responsive-size(padding-right, 27, 15,$maxWidthContainer);
+        @include responsive-size(font-size, 18, 16, $maxWidthContainer);
+        line-height: 2.44;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease 0s;
+        @media (any-hover:hover) {
+            &:hover {
+                color: #c0301c;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
+
+//====================================================================
+.blog {
+    @include responsive-size(padding-top,100, 50, $maxWidthContainer);
+    @include responsive-size(padding-bottom,100, 50, $maxWidthContainer);
+    &__container {
+    }
+
+    &__list {
+        @include responsive-size(margin-top, 70, 40, $maxWidthContainer);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1fr;
+    }
+
+    &__item {
+    }
+}
+
+.item-blog {
+    padding:  38px 0;
+    min-height: 100%;
+    @media (any-hover: hover) {
+        &:hover {
+            .title-blog__title, .title-blog__subtitle span,.item-blog__more {
+                color: #c0301c;
+            }
+        }
+    }
+    &:not(:last-child) {
+        border-bottom: 1px solid #dddddd;;
+    }
+    
+    &:first-child {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 0;
+    }
+    &__content {
+        display: grid;
+        height: 100%;
+        grid-template-columns: minmax(300px, 460px) minmax(400px, 640px);
+        column-gap: 40px;
+        @include responsive-size(column-gap, 40, 0, $maxWidthContainer);
+        @media (max-width: $md3+px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__column {
+        &:last-child {
+            @include responsive-size(padding-bottom, 65, 0, $maxWidthContainer);
+            
+            @media (max-width:$md3+px) {
+                padding-bottom: 0;
+            }
+        }
+        &_content {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }   
+        @media (max-width:$md3+px) {
+            &:first-child {
+                margin-top: 20px;
+            }
+            order: 2;
+            &_content {
+                order: 1;
+            }
+        }
+    }
+
+    &__img-container {
+        position: relative;
+        height: 100%;
+        @media (max-width: $md3+px) {
+            padding-bottom: 50%;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__title {
+        @include responsive-size(margin-bottom, 20, 10, $maxWidthContainer);
+    }
+
+    &__text {
+        flex: 1 1 auto;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+        @include responsive-size(font-size, 14, 12, $maxWidthContainer);
+        @include responsive-size(margin-bottom, 30, 15, $maxWidthContainer);
+
+    }
+
+    &__more {
+        font-size: 13px;
+        line-height: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #777777;
+        transition: all 0.3s ease 0s;
+    }
+}
+
+.title-blog {
+    display: flex;
+    align-items: center;
+    
+    &__date {
+        border: 2px solid #555555;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 19px 20px;
+        span {
+            font-family: Montserrat;
+            font-size: 24px;
+            line-height: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #777777;
+            &:last-child {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__text {
+        @include responsive-size(margin-left, 26, 15, $maxWidthContainer);
+    }
+
+    &__title {
+        transition: all 0.3s ease 0s;
+        font-family: Montserrat;
+        line-height: 1.5;
+        text-transform: uppercase;
+        color: #555555;
+        @include responsive-size(font-size, 16, 14, $maxWidthContainer);
+
+    }
+
+    &__subtitle {
+        line-height: 1.846;
+        font-weight: 400;
+        color: #777777;
+        @include responsive-size(font-size, 13, 12, $maxWidthContainer);
+        span {
+            transition: all 0.3s ease 0s;
+        }
+    }
+}
+//====================================================================
+
+.clients {
+    background-color: #f8f8f8;
+    @include responsive-size(padding-top,100,50,$maxWidthContainer);
+    @include responsive-size(padding-bottom,100,50,$maxWidthContainer);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 -30px;
+        @media (max-width:410px) {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        display: block;
+        padding: 0 30px 30px;
+        transition: all 0.5s ease 0s;
+        @media (any-hover:hover) {
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &__slider {
+        @include responsive-size(margin-top, 40, 0, $maxWidthContainer);
+    }
+}
+
+//===================================================================
+.connection {
+    @include responsive-size(padding-top, 100, 50, $maxWidthContainer);
+
+    @include responsive-size(padding-bottom, 100, 50, $maxWidthContainer);
+
+    &__container {
+        margin-top: 70px;
+        @include responsive-size(margin-top, 70, 35, $maxWidthContainer);
+        @media (min-width:$md2+px) {
+            display: grid;
+            grid-template-columns: 270px  minmax(500px,730px);
+            justify-content: space-between;
+        }
+        
+    }
+
+    &__socials {
+    }
+
+    &__connect {
+        
+    }
+
+    &__form {
+    }
+}
+
+.socials-connect {
+    @media (max-width:$md2+px) {
+        display: flex;
+        justify-content: center;
+    }
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        @media (min-width:$md2+px) {
+            flex-direction: column;
+        }
+        @media (max-width:$md2+px) {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+    }
+
+    &__item {
+        @media (max-width:$md2+px) {
+            padding-right: 30px;
+        }
+    }
+}
+
+.item-socials {
+    position: relative;
+    padding: 0 0 0 29px;
+    @media (min-width:$md2+px) {
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width:$md2+px) {
+        margin-bottom: 30px;
+    }
+    
+    &::before {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        font-size: 20px;
+        color: #555555;
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 30px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #555555;
+    }
+
+    &__information {
+    }
+
+    &__hover {
+        font-family: 'Roboto Slab';
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        & a {
+            color: #555555;
+            transition: all 0.3s ease 0s;
+            @media (any-hover:hover) {
+                &:hover {
+                    color: #c0301c;
+                }
+            }
+        }
+    }
+
+    &__phone {
+    }
+}
+
+.form-connnect {
+
+    &__container {
+    }
+
+    &__inputs-connection {
+    }
+
+    &__message {
+        height: 104px !important;
+        resize: none;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button {
+        flex: 0 0 140px;
+        border: 1px solid #555555;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #555555;
+        padding: 0 10px;
+        width: 140px;
+        @include responsive-size(padding-top, 15, 10, $maxWidthContainer);
+        @include responsive-size(padding-bottom, 15, 10, $maxWidthContainer);
+        @include responsive-size(font-size, 12, 10 ,$maxWidthContainer);
+
+        background-color: transparent;
+        transition: 0.3s ease 0s;
+        @media (any-hover:hover) {
+            &:hover {
+                background-color: #c0301c;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #555555;
+        margin-left: 38px;
+        @include responsive-size(margin-left, 38, 15,$maxWidthContainer);
+        @include responsive-size(font-size, 12, 10,$maxWidthContainer);
+
+        span {
+            color: #c0301c;
+        }
+    }
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(290px, 1fr));
+    column-gap: 30px;
+
+    &__column {
+        &:not(:last-child) {
+        }
+    }
+
+    &__input-container {
+        position: relative;
+        &._error {
+            .input {
+                box-shadow: 0 0 5px #c0301c;
+            }
+        }
+    }
+
+    &__input {
+        
+    }
+}
+
+.form__error {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
+.input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #555555;
+    margin-bottom: 21px;
+    padding: 17px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #555555;
+    transition: all 0.3s ease 0s;
+    &:focus {
+        border: 1px solid #c0301c;
+        text-transform: lowercase;
+    }
+}
+//=====================================================================

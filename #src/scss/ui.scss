@@ -1,0 +1,157 @@
+.introductory-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &__title {
+        font-family: Montserrat;
+        font-size: 20px;
+        line-height: 24px;
+        text-transform: uppercase;
+        color: #555555;
+        position: relative;
+        @include responsive-size(padding-bottom, 25, 20,$maxWidthContainer);
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform:  translate(-50%,0);
+            width: 50px;
+            margin-top: 30px;
+            height: 2px;
+            background-color: #555555;
+        }
+    }
+
+    &__text {
+        @include responsive-size(padding-top, 25, 20,$maxWidthContainer);
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #555555;
+    }
+}
+
+.slider__arrow {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px,-100%);
+    cursor: pointer; 
+    padding: 12px 14px;
+    background-color: rgba(85, 85, 85, 0.5);
+    transition: all 0.3s ease 0s;
+    @media (any-hover:hover) {
+        &:hover {
+            background-color: #c0301c;
+        }
+    }
+    &::before {
+        font-size: 20px;
+        color: #dddddd;
+    }
+    &_prev {
+        left: 0;
+    }
+
+    &_next {
+        right: 0;
+    }
+}
+
+.slider {
+    max-width: 100%;
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__container-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__slide {
+        
+    }
+
+    &__quote {
+        max-width: 790px;
+        text-align: center;
+        line-height: 1.66;
+        color: #555555;
+        @include responsive-size(margin-bottom, 30, 15, $maxWidthContainer);
+        @include responsive-size(font-size, 18, 16, $maxWidthContainer);
+    }
+
+    &__quote-autor {
+        line-height: 1.5;
+        font-weight: 400;
+        color: #555555;
+        @include responsive-size(font-size, 20, 16, $maxWidthContainer);
+    }
+
+}
+
+.controls-slider__dotts {
+    @include responsive-size(margin-top, 38, 25, $maxWidthContainer);
+    width: 100%;
+    text-align: center;
+    & .swiper-pagination-bullets{
+        display: flex;
+        justify-content: center;
+        
+    }
+    & .swiper-pagination-bullet{
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        background-color: #dddddd!important;
+        opacity: 1!important;
+        &:not(:last-child){
+            margin-right: 7px;
+        }
+    
+    }
+    & .swiper-pagination-bullet-active{
+        transition: all 0.8s ease 0s;
+        background-color: #c0301c!important;
+    }
+    
+}
+
+._ibg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    
+    img{
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body.ie{
+    ._ibg{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    ._ibg img{
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
