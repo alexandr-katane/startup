@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:wght@400,700&display=swap");
-
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:wght@400,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400,700&display=swap");
 
 @font-face {
   font-family: "fa-brands-400";
@@ -253,7 +253,7 @@ body._lock {
 }
 
 .header__logo {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   line-height: 36px;
   font-weight: 700;
@@ -271,7 +271,7 @@ body._lock {
 }
 
 .menu__link {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.025em;
@@ -1002,7 +1002,7 @@ button.swiper-pagination-bullet {
 }
 
 .introductory-info__title {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   line-height: 24px;
   text-transform: uppercase;
@@ -1299,7 +1299,7 @@ body.ie ._ibg img {
 }
 
 .banner__title {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   line-height: 30px;
   text-transform: uppercase;
   color: #ffffff;
@@ -1319,7 +1319,7 @@ body.ie ._ibg img {
 
 .banner__button {
   display: inline-block;
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   line-height: 24px;
   font-weight: 400;
   text-transform: uppercase;
@@ -1397,7 +1397,7 @@ body.ie ._ibg img {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 24px;
   text-transform: uppercase;
@@ -1515,7 +1515,7 @@ body.ie ._ibg img {
 }
 
 .team__people-name {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 24px;
   text-transform: uppercase;
@@ -1623,7 +1623,7 @@ body.ie ._ibg img {
 }
 
 .item-gallery__title {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #ffffff;
@@ -1857,7 +1857,7 @@ body.ie ._ibg img {
 }
 
 .title-blog__date span {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   line-height: 20px;
   font-weight: 700;
@@ -1878,7 +1878,7 @@ body.ie ._ibg img {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   text-transform: uppercase;
   color: #555555;
@@ -1980,7 +1980,7 @@ body.ie ._ibg img {
 }
 
 .item-socials__title {
-  font-family: Montserrat;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 30px;
   font-weight: 400;
